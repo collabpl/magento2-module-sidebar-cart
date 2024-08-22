@@ -1,0 +1,26 @@
+<?php
+/**
+ * @category  Collab
+ * @package   Collab\SidebarCart
+ * @author    Marcin Jędrzejewski <m.jedrzejewski@collab.pl>
+ * @copyright 2024 Collab
+ * @license   MIT
+ */
+
+/**
+ * @var Template $block
+ * @var SecureHtmlRenderer $secureRenderer
+ */
+use Magento\Framework\View\Element\Template;
+use Magento\Framework\View\Helper\SecureHtmlRenderer;
+?>
+
+<?php
+$script = <<<JS
+(()=>{let t=()=>{var e=document.getElementById("btn-minicart-close"),t=document.querySelector(".action.showcart");e.addEventListener("click",()=>{document.body.classList.remove("cart-active")},{passive:!0}),t.addEventListener("click",e=>{document.body.classList.remove("cart-active");var t,r,a,c=e.currentTarget||e.target,c=getComputedStyle(c,":after");c&&(t=Number(c.getPropertyValue("top").slice(0,-2)),r=Number(c.getPropertyValue("height").slice(0,-2)),c=Number(c.getPropertyValue("width").slice(0,-2)),a=e.layerX,e=e.layerY,0<a)&&a<0+c&&t<e&&e<t+r&&document.body.classList.add("cart-active")},{passive:!0})};["touchstart"].forEach(e=>window.addEventListener(e,t,{once:!0,passive:!0}))})();
+JS;
+?>
+
+<?= /* @noEscape */ $secureRenderer->renderTag('script', [], $script, false) ?>
+
+

@@ -1,0 +1,19 @@
+{
+  "name": "magento2-module-sidebar-cart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/collabpl/magento2-module-sidebar-cart.git"
+  },
+  "author": "Marcin Jędrzejewski <m.jedrzejewski@collab.pl>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/collabpl/magento2-module-sidebar-cart/issues"
+  },
+  "homepage": "https://github.com/collabpl/magento2-module-sidebar-cart#readme"
+}

@@ -1,0 +1,7 @@
+node_modules
+package.json
+package-lock.json
+Gruntfile.js
+*src.js
+**/templates/*.js
+**/templates/**/*.js

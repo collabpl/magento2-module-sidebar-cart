@@ -1,0 +1,103 @@
+// /**
+//  * @category  Collab
+//  * @package   Collab\SidebarCart
+//  * @author    Marcin Jędrzejewski <m.jedrzejewski@collab.pl>
+//  * @copyright 2024 Collab
+//  * @license   MIT
+//  */
+
+//
+//  Variables
+//  _____________________________________________
+@import "module/_variables.less";
+
+//
+//  Common
+//  _____________________________________________
+& when (@media-common = true) {
+    .minicart-wrapper {
+        .block {
+            &.block-minicart {
+                -webkit-overflow-scrolling: touch;
+                .lib-css(right, -100%);
+                .lib-css(height, 100dvh);
+                .lib-css(position, fixed);
+                .lib-css(top, 0);
+                .lib-css(margin-top, 0);
+                .lib-css(min-width, inherit);
+
+                &:after,
+                &:before {
+                    .lib-visually-hidden();
+                }
+            }
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .minicart-wrapper {
+        &.active {
+            .block {
+                &.block-minicart {
+                    .lib-css(right, 0);
+                    .lib-css(width, @desktop-cart-sidebar__width);
+                }
+            }
+        }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    body.cart-active {
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+    }
+
+    .minicart-wrapper {
+        .action {
+            &:after {
+                left: calc(~'100% - @{active-nav-indent}');
+                background: rgba(0, 0, 0, @overlay__opacity);
+                content: '';
+                display: block;
+
+                position: fixed;
+                top: 0;
+                width: @active-nav-indent;
+                z-index: @z-index-1;
+                opacity: 0;
+            }
+        }
+
+        &.active {
+            .action {
+                &.active {
+                    &:after {
+                        left: 0;
+                        opacity: 1;
+                        height: 100%;
+                    }
+                }
+            }
+            .block {
+                &.block-minicart {
+                    .lib-css(right, 0);
+                    .lib-css(width, calc(~'100vw - @{active-nav-indent}'));
+                }
+            }
+        }
+
+        .minicart-items-wrapper {
+            height: @scroll-viewport-mobile__height !important;
+        }
+    }
+}
