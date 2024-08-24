@@ -1,6 +1,6 @@
 {
     "name": "collab/module-sidebar-cart",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Module which allows You to choose if cart dropdown should be replaced by sidebar.",
     "type": "magento2-module",
     "authors": [
